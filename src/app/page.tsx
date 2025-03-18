@@ -1,4 +1,10 @@
-import Link from "next/link";
+"use client"
+
+import { useState } from "react"
+import { File, mockFiles } from "../lib/mock-data"
+import { Folder, FileIcon, Upload, ChevronRight } from "lucide-react"
+import Link from "next/link"
+import { Button } from "../components/ui/button"
 
 export default function HomePage() {
   return (
