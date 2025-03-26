@@ -1,6 +1,6 @@
 import { db } from "~/server/db";
 
-import { DB_FileType, files_table as filesSchema, folders_table as foldersSchema} from "~/server/db/schema";
+import { files_table as filesSchema, folders_table as foldersSchema} from "~/server/db/schema";
 //import DriveContents from "../../drive-contents";
 import {eq} from "drizzle-orm";
 //import Link from "next/lin
@@ -41,18 +41,27 @@ export function getFiles(folderId: number) {
     .where(eq(filesSchema.parent, folderId)); 
 } 
 
+export async function getFolderById(folderId: number) {
+  const folder = await db
+    .select()
+    .from(foldersSchema)
+    .where(eq(foldersSchema.id, folderId));
+  return folder[0];
+}
+
 export const MUTATIONS = {
   createFile: async function (input: {
     file: {
       name: string;
       size: number;
       url: string;
+      parent: number;
     }
       userId: string;
   }) {
     return await db.insert(filesSchema).values({
       ...input.file,
-      parent: 1,
+      ownerId: input.userId,
     });
   },  
 };
