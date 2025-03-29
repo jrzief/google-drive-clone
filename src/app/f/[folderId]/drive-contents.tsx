@@ -1,10 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { mockFiles, mockFolders } from "../lib/mock-data";
+import { mockFiles, mockFolders } from "../../../lib/mock-data";
 import { Folder, FileIcon, Upload, ChevronRight } from "lucide-react";
 //import Link from "next/link";
-import { Button } from "../components/ui/button";
+import { Button } from "../../../components/ui/button";
 import { FileRow, FolderRow } from "./file-row";
 import type { files_table, folders_table } from "~/server/db/schema";
 import Link from "next/link";
@@ -98,8 +98,9 @@ export default function DriveContents(props: {
           <div className="px-6 py-4 border-b border-gray-700">
             <div className="grid grid-cols-12 gap-4 text-sm font-medium text-gray-400">
               <div className="col-span-6">Name</div>
-              <div className="col-span-3">Type</div>
+              <div className="col-span-1">Type</div>
               <div className="col-span-3">Size</div>
+              <div className="col-span-2"></div>
             </div>
           </div>
           <ul>

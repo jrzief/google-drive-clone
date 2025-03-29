@@ -7,6 +7,8 @@
 - [ x] Add auth
 - [ x] Add file uploading
 - [ ] Add analytics
+- [ ] Add delete
+- [ ] Real homepage
 
 After file uploading
 

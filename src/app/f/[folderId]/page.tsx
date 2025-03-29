@@ -1,7 +1,7 @@
 import { db } from "~/server/db";
 
 import { files_table as filesSchema, folders_table as foldersSchema} from "~/server/db/schema";
-import DriveContents from "../../drive-contents";
+import DriveContents from "./drive-contents";
 import {eq} from "drizzle-orm";
 import { getAllParentsForFolder, getFiles, getFolders } from "~/server/db/queries";
 //import Link from "next/lin
